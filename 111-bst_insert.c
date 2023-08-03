@@ -11,33 +11,35 @@ bst_t *bst_insert(bst_t **tree, int value)
 {
 	bst_t *otr, *ntr;
 
-	if (!tree)
-		return (NULL);
+	if (tree != NULL)
+	{
+		otr = *tree;
 
-	otr = *tree;
-	if (otr == NULL)
-	{
-		ntr = binary_tree_node(otr, value);
-		if (ntr == NULL)
-			return (NULL);
-		return (*tree = ntr);
+		if (otr == NULL)
+		{
+			ntr = binary_tree_node(otr, value);
+			if (ntr == NULL)
+				return (NULL);
+			return (*tree = ntr);
+		}
+		if (value < otr->n)
+		{
+			if (otr->left != NULL)
+				return (bst_insert(&otr->left, value));
+			ntr = binary_tree_node(otr, value);
+			if (ntr == NULL)
+				return (NULL);
+			return (otr->left = ntr);
+		}
+		if (value > otr->n)
+		{
+			if (otr->right != NULL)
+				return (bst_insert(&otr->right, value));
+			ntr = binary_tree_node(otr, value);
+			if (ntr == NULL)
+				return (NULL);
+			return (otr->right = ntr);
+		}
 	}
-	if (value < otr->n)
-	{
-		if (otr->left != NULL)
-			return (bst_insert(&otr->left, value));
-		ntr = binary_tree_node(otr, value);
-		if (ntr == NULL)
-			return (NULL);
-		return (otr->left = ntr);
-	}
-	if (value > otr->n)
-	{
-		if (otr->right != NULL)
-			return (bst_insert(&otr->right, value));
-		ntr = binary_tree_node(otr, value);
-		if (ntr == NULL)
-			return (NULL);
-		return (otr->right = ntr);
-	}
+	return (NULL);
 }

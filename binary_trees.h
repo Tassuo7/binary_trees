@@ -18,6 +18,7 @@ typedef struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 } binary_tree_t;
+typedef struct binary_tree_s bst_t;
 
 int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -46,5 +47,7 @@ int binary_tree_is_leaf(const binary_tree_t *node);
 size_t binary_tree_nodes(const binary_tree_t *tree);
 size_t binary_tree_leaves(const binary_tree_t *tree);
 size_t binary_tree_size(const binary_tree_t *tree);
+// bst
+int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
 #endif /* _BINARY_TREES_H_ */
