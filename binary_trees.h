@@ -51,6 +51,6 @@ size_t binary_tree_size(const binary_tree_t *tree);
 /* bst */
 int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
-bst_t *array_to_bst(int *array, size_t size)i;
+bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 #endif /* _BINARY_TREES_H_ */
